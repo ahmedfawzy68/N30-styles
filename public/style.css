@@ -6,7 +6,7 @@
 .newsletter-luxe__submit,
 .ab-footer.ab-footer-v2 .abf-input-wrap,
 .newsletter-luxe__input {
-  border-radius: none !important;
+  border-radius: 0 !important;
 }
 
 .ab-footer-powered {
