@@ -1,0 +1,26 @@
+/* remove hero slider controls */
+.edition-hero-slider__controls {
+  display: none !important;
+}
+
+/* round corners for btns and inputs */
+.edition-hero-slider__btn,
+.shop-the-look__hero-cta,
+.newsletter-luxe__submit,
+.ab-footer.ab-footer-v2 .abf-input-wrap,
+.newsletter-luxe__input {
+  border-radius: 8px !important;
+}
+
+/* remove powered by text */
+.ab-footer-powered {
+  display: none !important;
+}
+
+/* change submit btn width and height */
+.ab-footer.ab-footer-v2 .abf-submit {
+  height: 100% !important;
+  width: 50px !important;
+  margin-inline-end: 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+}
