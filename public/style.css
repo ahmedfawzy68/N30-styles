@@ -1,3 +1,14 @@
 .edition-hero-slider__controls {
   display: none !important;
 }
+.edition-hero-slider__btn,
+.shop-the-look__hero-cta,
+.newsletter-luxe__submit,
+.ab-footer.ab-footer-v2 .abf-input-wrap,
+.newsletter-luxe__input {
+  border-radius: none !important;
+}
+
+.ab-footer-powered {
+  display: none !important;
+}
