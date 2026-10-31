@@ -29,3 +29,10 @@
 .ab-footer.ab-footer-v2 .abf-payment img {
   display: none !important;
 }
+
+/* round corners for add to cart btn, quantity btn container, and checkout btn */
+.add_to_cart_btn,
+.quantity_btn_container,
+.checkout_btn {
+  border-radius: 8px !important;
+}
