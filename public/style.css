@@ -26,6 +26,6 @@
 }
 
 /* remove payment icons */
-.abf-payment-icon img {
+.ab-footer.ab-footer-v2 .abf-payment img {
   display: none !important;
 }
