@@ -37,6 +37,7 @@
   border-radius: 8px !important;
 }
 
+/* decrease padding for add to cart btn */
 .add_to_cart_btn {
   padding-block: 8px !important;
 }
