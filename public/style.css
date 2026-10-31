@@ -24,3 +24,8 @@
   margin-inline-end: 0 !important;
   border-radius: 0 8px 8px 0 !important;
 }
+
+/* remove payment icons */
+.abf-payment-icon {
+  display: none !important;
+}
