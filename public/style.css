@@ -25,11 +25,6 @@
   border-radius: 0 8px 8px 0 !important;
 }
 
-/* remove payment icons */
-.ab-footer.ab-footer-v2 .abf-payment img {
-  display: none !important;
-}
-
 /* round corners for add to cart btn, quantity btn container, and checkout btn */
 .add_to_cart_btn,
 .quantity_btn_container,
@@ -40,4 +35,20 @@
 /* decrease padding for add to cart btn */
 .add_to_cart_btn {
   padding-block: 8px !important;
+}
+
+.test {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
 }
