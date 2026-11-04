@@ -1,8 +1,3 @@
-/* remove hero slider controls */
-.edition-hero-slider__controls {
-  display: none !important;
-}
-
 /* round corners for btns and inputs */
 .edition-hero-slider__btn,
 .shop-the-look__hero-cta,
