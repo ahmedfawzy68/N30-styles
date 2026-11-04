@@ -1,476 +1,495 @@
-/* round corners for btns and inputs */
-.edition-hero-slider__btn,
-.shop-the-look__hero-cta,
-.newsletter-luxe__submit,
-.ab-footer.ab-footer-v2 .abf-input-wrap,
-.newsletter-luxe__input {
-  border-radius: 8px !important;
+/* ============================================================
+   N30 | Homepage redesign — EasyOrders custom stylesheet
+   Built for the classes in the supplied homepage HTML.
+   Homepage-only: collection/product templates are untouched.
+   Remove older homepage redesign/fade rules before deploying.
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap");
+
+body.is-home {
+  --n30-ink: #211c18;
+  --n30-muted: #756d65;
+  --n30-cream: #f8f6f2;
+  --n30-paper: #ffffff;
+  --n30-line: #e8e2d9;
+  --n30-gold: #b88a47;
+  background: var(--n30-cream);
+}
+body.is-home main {
+  background: var(--n30-cream);
+}
+body.is-home main .eo-home-section,
+body.is-home main .ab-comparison-section {
+  font-family: "Inter", sans-serif;
 }
 
-/* remove powered by text */
-.ab-footer-powered {
-  display: none !important;
-}
-
-/* change submit btn width and height */
-.ab-footer.ab-footer-v2 .abf-submit {
-  height: 100% !important;
-  width: 50px !important;
-  margin-inline-end: 0 !important;
-  border-radius: 0 8px 8px 0 !important;
-}
-
-/* round corners for add to cart btn, quantity btn container, and checkout btn */
-.add_to_cart_btn,
-.quantity_btn_container,
-.checkout_btn {
-  border-radius: 8px !important;
-}
-
-/* decrease padding for add to cart btn */
-.add_to_cart_btn {
-  padding-block: 8px !important;
-}
-
-/* Hero section ai design */
-
-/* ==============================================
-   N30 — PREMIUM EDITORIAL HOMEPAGE HERO
-   Cinematic / Minimal / Luxury Leather
-============================================== */
-
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-
-/* ==============================================
-   1. HERO CONTAINER
-============================================== */
-
+/* 01 — Full-bleed photographic hero */
 body.is-home .edition-hero-slider {
   position: relative !important;
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  margin-bottom: 0 !important;
+  height: min(820px, 88svh) !important;
+  min-height: 580px !important;
+  max-height: 900px !important;
+  border-radius: 0 !important;
   isolation: isolate;
-  overflow: hidden !important;
-
-  /* Better proportions than 100vh */
-  min-height: 680px !important;
-  height: 88svh !important;
-  max-height: 950px !important;
-
-  background: #211c18 !important;
+  background: var(--n30-ink);
 }
-
-/* ==============================================
-   2. HERO IMAGE
-============================================== */
-
 body.is-home .edition-hero-slider__media {
-  position: absolute;
-  inset: 0;
   overflow: hidden;
 }
-
 body.is-home .edition-hero-slider__img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-  object-position: center;
-
-  /* Preserve natural image appearance */
-  filter: brightness(0.96) contrast(1.03) saturate(0.96);
-
-  transform: scale(1);
-  transition:
-    transform 7s cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter 1s ease;
+  object-position: center center;
+  filter: saturate(0.96) contrast(1.02) !important;
 }
-
-/* Very subtle cinematic zoom */
-body.is-home .edition-hero-slider__slide.ab-active .edition-hero-slider__img {
-  transform: scale(1.035);
-}
-
-/* ==============================================
-   3. CINEMATIC OVERLAY
-============================================== */
-
+/* Elegant image-first contrast, not the earlier white wash */
 body.is-home .edition-hero-slider__shade {
-  position: absolute !important;
-  inset: 0 !important;
-  z-index: 1 !important;
-  pointer-events: none !important;
-
-  /*
-   Keep the top and right side visible.
-   Darken only where content needs contrast.
-  */
-
   background:
     linear-gradient(
-      0deg,
-      rgba(15, 12, 10, 0.7) 0%,
-      rgba(15, 12, 10, 0.42) 22%,
-      rgba(15, 12, 10, 0.12) 48%,
-      rgba(15, 12, 10, 0) 75%
-    ),
-    linear-gradient(
       90deg,
-      rgba(15, 12, 10, 0.3) 0%,
-      rgba(15, 12, 10, 0.12) 45%,
-      transparent 85%
-    ) !important;
-
+      rgba(21, 17, 14, 0.55) 0%,
+      rgba(21, 17, 14, 0.24) 48%,
+      rgba(21, 17, 14, 0.04) 100%
+    ),
+    linear-gradient(0deg, rgba(15, 12, 10, 0.54) 0%, transparent 52%) !important;
   opacity: 1 !important;
+  pointer-events: none;
 }
-
-/* ==============================================
-   4. TEXT POSITIONING
-============================================== */
-
 body.is-home .edition-hero-slider__content {
-  position: absolute !important;
-  z-index: 3 !important;
-
   top: auto !important;
-  bottom: 105px !important;
-  left: clamp(28px, 8vw, 145px) !important;
+  bottom: clamp(100px, 13vh, 156px) !important;
+  left: clamp(24px, 8vw, 128px) !important;
   right: auto !important;
-
   transform: none !important;
-  text-align: left !important;
-
   max-width: min(650px, 75vw) !important;
-  padding: 0 !important;
-
+  text-align: left !important;
+  z-index: 3 !important;
+}
+body.is-home .edition-hero-slider__stack {
+  gap: 17px !important;
+  align-items: flex-start !important;
+}
+body.is-home .edition-hero-slider__title {
+  font-family: "Newsreader", Georgia, serif !important;
+  font-size: clamp(54px, 6.5vw, 102px) !important;
+  font-weight: 400 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.025em !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  color: #fff !important;
+  text-wrap: balance;
+}
+body.is-home .edition-hero-slider__desc {
+  font:
+    400 clamp(14px, 1.3vw, 17px)/1.7 "Inter",
+    sans-serif !important;
+  color: rgba(255, 255, 255, 0.91) !important;
+  opacity: 1 !important;
+  max-width: 470px !important;
+}
+body.is-home .edition-hero-slider__btn {
+  margin-top: 12px !important;
+  padding: 15px 29px !important;
+  min-height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  border-radius: 2px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #fff !important;
+  font:
+    600 11px/1.3 "Inter",
+    sans-serif !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase;
+  backdrop-filter: blur(5px);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease !important;
+}
+body.is-home .edition-hero-slider__btn:hover {
+  background: #fff !important;
+  color: var(--n30-ink) !important;
+  opacity: 1 !important;
+  transform: translateY(-2px);
+}
+body.is-home .edition-hero-slider__controls {
+  background: none !important;
+  padding: 18px clamp(22px, 5vw, 68px) 12px !important;
+}
+body.is-home .edition-hero-slider__progress {
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+body.is-home .edition-hero-slider__progress-bar {
+  background: #e2c496 !important;
+  box-shadow: none !important;
+}
+body.is-home .edition-hero-slider__ctrl {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+body.is-home .edition-hero-slider__ctrl:hover {
   color: #fff !important;
 }
-
-body.is-home .edition-hero-slider__stack {
-  align-items: flex-start !important;
-  gap: 17px !important;
+body.is-home .edition-hero-slider__ctrl-rule {
+  background: rgba(255, 255, 255, 0.3) !important;
 }
-
-/* ==============================================
-   5. HEADLINE
-============================================== */
-
-body.is-home .edition-hero-slider__title {
-  font-family: "Inter", sans-serif !important;
-
-  font-size: clamp(42px, 5vw, 76px) !important;
-
-  font-weight: 500 !important;
-  letter-spacing: -2.5px !important;
-  line-height: 1.08 !important;
-
-  color: #ffffff !important;
-
-  max-width: 650px !important;
-  white-space: normal !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.12);
-}
-
-/* ==============================================
-   6. DESCRIPTION
-============================================== */
-
-body.is-home .edition-hero-slider__desc {
-  font-family: "Inter", sans-serif !important;
-
-  font-size: clamp(14px, 1.2vw, 17px) !important;
-
-  font-weight: 400 !important;
-
-  line-height: 1.8 !important;
-  letter-spacing: 0.1px !important;
-
-  color: rgba(255, 255, 255, 0.88) !important;
-
-  max-width: 490px !important;
-  opacity: 1 !important;
-
-  margin: 0 !important;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* ==============================================
-   7. PREMIUM SHOP NOW BUTTON
-============================================== */
-
-body.is-home .edition-hero-slider__btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-
-  margin-top: 15px !important;
-
-  padding: 15px 33px !important;
-  min-height: 48px !important;
-
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  border-radius: 2px !important;
-
-  background: rgba(255, 255, 255, 0.08) !important;
-
-  color: #ffffff !important;
-
-  font-family: "Inter", sans-serif !important;
-  font-size: 11px !important;
-  font-weight: 600 !important;
-  letter-spacing: 2px !important;
-  text-transform: uppercase !important;
-
-  text-decoration: none !important;
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  box-shadow: none !important;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease !important;
-}
-
-/* Button hover */
-
-body.is-home .edition-hero-slider__btn:hover {
-  background: #ffffff !important;
-  color: #211c18 !important;
-  border-color: #ffffff !important;
-
-  transform: translateY(-2px) !important;
-  opacity: 1 !important;
-}
-
-body.is-home .edition-hero-slider__btn:focus-visible {
-  outline: 2px solid #d6af70 !important;
-  outline-offset: 4px !important;
-}
-
-/* ==============================================
-   8. HEADER / LOGO
-============================================== */
-
-/* White navigation over photography */
-
+/* Keep the transparent-home header readable over hero photos */
 body.is-home .ab-theme:not(.scrolled) .ab-header {
-  --hd-text: #ffffff !important;
+  --hd-text: #fff !important;
 }
-
-/* Original white logo behavior */
-
 body.is-home .ab-theme:not(.scrolled) .ab-logo img {
   filter: brightness(0) invert(1) !important;
 }
 
-/* Subtle top shadow for navigation */
-
-body.is-home .ab-theme:not(.scrolled) .ab-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18), transparent);
+/* 02 — Shop-the-look as a clean editorial product feature */
+body.is-home .shop-the-look.shop-the-look--cream {
+  background: var(--n30-cream) !important;
+  color: var(--n30-ink) !important;
+  margin: 0 !important;
+  padding: clamp(64px, 8vw, 128px) clamp(20px, 5vw, 72px) !important;
 }
-
-/* ==============================================
-   9. SLIDER CONTROLS
-============================================== */
-
-body.is-home .edition-hero-slider__controls {
-  z-index: 4 !important;
-
-  padding: 18px clamp(20px, 4vw, 45px) 12px !important;
-
-  background: none !important;
+body.is-home .shop-the-look__head {
+  max-width: 1240px !important;
+  margin: 0 auto clamp(28px, 3.4vw, 48px) !important;
 }
-
-/* Thin progress bar */
-
-body.is-home .edition-hero-slider__progress {
-  height: 1px !important;
-  margin-bottom: 8px !important;
-
-  background: rgba(255, 255, 255, 0.25) !important;
+body.is-home .shop-the-look__title {
+  color: var(--n30-ink) !important;
+  font:
+    400 clamp(38px, 4.2vw, 64px)/1.06 "Newsreader",
+    Georgia,
+    serif !important;
+  letter-spacing: -0.025em !important;
 }
-
-body.is-home .edition-hero-slider__progress-bar {
-  background: #d6af70 !important;
+body.is-home .shop-the-look__subtitle {
+  color: var(--n30-muted) !important;
+  font:
+    400 15px/1.75 "Inter",
+    sans-serif !important;
+  max-width: 550px;
+  opacity: 1 !important;
+}
+body.is-home .shop-the-look__layout {
+  max-width: 1240px !important;
+  gap: clamp(18px, 3vw, 40px) !important;
+}
+body.is-home .shop-the-look__hero {
+  border-radius: 3px !important;
+  min-height: 500px !important;
   box-shadow: none !important;
 }
-
-/* Slider icons */
-
-body.is-home .edition-hero-slider__ctrl {
-  color: rgba(255, 255, 255, 0.7) !important;
-  transition: color 0.25s ease !important;
+body.is-home .shop-the-look__hero:hover {
+  transform: translateY(-3px);
+  box-shadow: none !important;
+}
+body.is-home .shop-the-look__hero-img {
+  transition: transform 0.65s ease;
+}
+body.is-home .shop-the-look__hero:hover .shop-the-look__hero-img {
+  transform: scale(1.025);
+}
+body.is-home .shop-the-look__hero-shade {
+  background: linear-gradient(
+    0deg,
+    rgba(22, 17, 14, 0.75),
+    rgba(22, 17, 14, 0) 65%
+  ) !important;
+}
+body.is-home .shop-the-look__hero-copy {
+  padding: clamp(22px, 3vw, 42px) !important;
+}
+body.is-home .shop-the-look__hero-title {
+  font:
+    400 clamp(30px, 3.2vw, 48px)/1.08 "Newsreader",
+    Georgia,
+    serif !important;
+  text-transform: capitalize;
+}
+body.is-home .shop-the-look__hero-caption {
+  font:
+    400 13px/1.65 "Inter",
+    sans-serif !important;
+}
+body.is-home .shop-the-look__hero-cta {
+  border: 1px solid #fff;
+  border-radius: 2px !important;
+  background: #fff !important;
+  color: var(--n30-ink) !important;
+  padding: 12px 20px !important;
+  font:
+    600 10px/1.3 "Inter",
+    sans-serif !important;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+body.is-home .shop-the-look__picks-inner {
+  gap: 12px !important;
+}
+body.is-home .shop-the-look__picks-inner .eo-hs-card--product {
+  padding: 12px !important;
+  border: 1px solid var(--n30-line) !important;
+  border-radius: 3px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+body.is-home .shop-the-look__picks-inner .eo-hs-card--product:hover {
+  border-color: #c4b6a1 !important;
+  background: #fff !important;
+  transform: translateX(3px);
+}
+body.is-home .shop-the-look__picks-inner .eo-hs-card__media {
+  width: 88px !important;
+  height: 105px !important;
+  border-radius: 2px !important;
+  background: #f3f0eb;
+}
+body.is-home .shop-the-look__picks-inner .eo-hs-card__title {
+  color: var(--n30-ink) !important;
+  font:
+    500 13px/1.45 "Inter",
+    sans-serif !important;
+}
+body.is-home .shop-the-look__picks-inner .eo-hs-card__meta {
+  color: var(--n30-ink) !important;
+  font:
+    500 12px/1.5 "Inter",
+    sans-serif !important;
+}
+body.is-home .shop-the-look__picks-inner .eo-hs-card__meta del {
+  color: #9b938a !important;
 }
 
-body.is-home .edition-hero-slider__ctrl:hover {
-  color: #ffffff !important;
+/* 03 — Keep the existing sticky storytelling interaction */
+body.is-home .scroll-trans-v1-section {
+  background: var(--n30-ink);
+}
+body.is-home .scroll-trans-v1-section .stv1-media {
+  filter: saturate(0.92) contrast(1.04);
+}
+body.is-home .scroll-trans-v1-section .stv1-overlay-gradient {
+  background: linear-gradient(
+    0deg,
+    rgba(17, 14, 12, 0.57),
+    rgba(17, 14, 12, 0.1) 75%
+  ) !important;
+}
+body.is-home .scroll-trans-v1-section .stv1-title {
+  font-family: "Newsreader", Georgia, serif !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.025em !important;
+}
+body.is-home .scroll-trans-v1-section .stv1-subtitle {
+  font-family: "Inter", sans-serif !important;
+  line-height: 1.65 !important;
 }
 
-body.is-home .edition-hero-slider__ctrl-rule {
-  background: rgba(255, 255, 255, 0.25) !important;
+/* 04 — Comparison section: calm, minimal framing */
+body.is-home .ab-comparison-section {
+  background: #fff !important;
+  padding: clamp(64px, 7vw, 110px) clamp(20px, 5vw, 72px) !important;
+  color: var(--n30-ink) !important;
+}
+body.is-home .ab-comparison-container {
+  max-width: 1200px !important;
+  margin: auto !important;
+}
+body.is-home .ab-comparison-title {
+  font:
+    400 clamp(38px, 4vw, 60px)/1.1 "Newsreader",
+    Georgia,
+    serif !important;
+  letter-spacing: -0.025em !important;
+  color: var(--n30-ink) !important;
+}
+body.is-home .ab-comparison-desc {
+  font:
+    400 14px/1.75 "Inter",
+    sans-serif !important;
+  color: var(--n30-muted) !important;
+  max-width: 580px;
+}
+body.is-home .ab-comparison-slider-wrap {
+  border-radius: 3px !important;
+  overflow: hidden;
+}
+body.is-home .ab-comp-handle-circle {
+  background: #fff !important;
+  color: var(--n30-ink) !important;
+  border: 1px solid var(--n30-line) !important;
+  box-shadow: 0 5px 20px rgba(30, 22, 15, 0.12) !important;
 }
 
-/* ==============================================
-   10. TABLET
-============================================== */
+/* 05 — Newsletter: quiet editorial subscription area */
+body.is-home .newsletter-luxe {
+  background: #eee9e1 !important;
+  color: var(--n30-ink) !important;
+  padding: clamp(65px, 8vw, 125px) 22px !important;
+  margin: 0 !important;
+}
+body.is-home .newsletter-luxe__inner {
+  max-width: 720px !important;
+  margin: auto !important;
+}
+body.is-home .newsletter-luxe__title {
+  color: var(--n30-ink) !important;
+  font:
+    400 clamp(38px, 4.5vw, 62px)/1.08 "Newsreader",
+    Georgia,
+    serif !important;
+  letter-spacing: -0.025em !important;
+}
+body.is-home .newsletter-luxe__body {
+  color: var(--n30-muted) !important;
+  font:
+    400 14px/1.8 "Inter",
+    sans-serif !important;
+}
+body.is-home .newsletter-luxe__input {
+  border: 1px solid #cfc5b9 !important;
+  border-radius: 2px !important;
+  background: #fff !important;
+  color: var(--n30-ink) !important;
+  font-family: "Inter", sans-serif !important;
+}
+body.is-home .newsletter-luxe__submit {
+  background: var(--n30-ink) !important;
+  color: #fff !important;
+  border-radius: 2px !important;
+  border: 1px solid var(--n30-ink) !important;
+  font-family: "Inter", sans-serif !important;
+}
+body.is-home .newsletter-luxe__submit:hover {
+  background: #44372e !important;
+}
+body.is-home .newsletter-luxe__fine {
+  color: var(--n30-muted) !important;
+}
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  body.is-home .edition-hero-slider {
-    min-height: 600px !important;
-    height: 80svh !important;
-  }
+/* 06 — Footer alignment and restraint */
+body.is-home .ab-footer {
+  font-family: "Inter", sans-serif !important;
+}
+body.is-home .ab-footer .abf-links a {
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+body.is-home .ab-footer .abf-links a:hover {
+  opacity: 0.65;
+}
 
+/* Tablet and smaller desktop */
+@media (max-width: 1024px) and (min-width: 769px) {
   body.is-home .edition-hero-slider__content {
-    left: 50px !important;
-    bottom: 110px !important;
-    max-width: 75vw !important;
+    left: 6vw !important;
+    max-width: min(610px, 80vw) !important;
   }
-
   body.is-home .edition-hero-slider__title {
-    font-size: clamp(38px, 5vw, 58px) !important;
+    font-size: clamp(54px, 7vw, 76px) !important;
+  }
+  body.is-home .shop-the-look__hero {
+    min-height: 430px !important;
   }
 }
 
-/* ==============================================
-   11. MOBILE
-============================================== */
-
+/* Mobile */
 @media (max-width: 768px) {
   body.is-home .edition-hero-slider {
-    min-height: 560px !important;
-    height: 86svh !important;
-    max-height: 780px !important;
-
-    margin-inline: calc(50% - 50vw) !important;
     width: 100vw !important;
+    max-width: 100vw !important;
+    height: 82svh !important;
+    min-height: 560px !important;
+    max-height: 760px !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
   }
-
-  /* Image stays visible */
-
-  body.is-home .edition-hero-slider__img {
-    object-fit: cover !important;
-    object-position: center !important;
-
-    filter: brightness(0.96) contrast(1.02);
-  }
-
-  /* Dark overlay primarily at the bottom */
-
   body.is-home .edition-hero-slider__shade {
     background: linear-gradient(
-      to top,
-      rgba(15, 12, 10, 0.85) 0%,
-      rgba(15, 12, 10, 0.62) 28%,
-      rgba(15, 12, 10, 0.2) 58%,
-      rgba(15, 12, 10, 0.03) 82%
+      0deg,
+      rgba(17, 14, 12, 0.82) 0%,
+      rgba(17, 14, 12, 0.58) 32%,
+      rgba(17, 14, 12, 0.13) 68%,
+      transparent 100%
     ) !important;
   }
-
-  /* Content above slider controls */
-
   body.is-home .edition-hero-slider__content {
-    position: absolute !important;
-
+    left: 22px !important;
+    right: 22px !important;
+    bottom: 112px !important;
     top: auto !important;
-    bottom: 115px !important;
-
-    left: 24px !important;
-    right: 24px !important;
-
-    max-width: calc(100% - 48px) !important;
-
-    transform: none !important;
+    width: auto !important;
+    max-width: none !important;
     text-align: left !important;
-    padding: 0 !important;
+    transform: none !important;
   }
-
   body.is-home .edition-hero-slider__stack {
-    gap: 13px !important;
-    align-items: flex-start !important;
+    gap: 12px !important;
   }
-
-  /* Mobile headline */
-
   body.is-home .edition-hero-slider__title {
-    font-size: clamp(31px, 8vw, 43px) !important;
-
-    font-weight: 500 !important;
-    letter-spacing: -1.3px !important;
-    line-height: 1.12 !important;
-
-    white-space: normal !important;
+    font-size: clamp(43px, 11vw, 64px) !important;
+    line-height: 1 !important;
   }
-
-  /* Mobile description */
-
   body.is-home .edition-hero-slider__desc {
     font-size: 13px !important;
-    line-height: 1.65 !important;
-    max-width: 100% !important;
+    line-height: 1.6 !important;
+    max-width: 370px !important;
   }
-
-  /* Mobile button */
-
   body.is-home .edition-hero-slider__btn {
-    margin-top: 9px !important;
-
-    padding: 13px 24px !important;
-    min-height: 44px !important;
-
+    padding: 13px 23px !important;
+    min-height: 44px;
+    margin-top: 7px !important;
     font-size: 10px !important;
-    letter-spacing: 1.5px !important;
   }
-
-  /* Controls */
-
   body.is-home .edition-hero-slider__controls {
-    padding: 14px 20px 10px !important;
+    padding: 12px 20px 10px !important;
+  }
+  body.is-home .shop-the-look.shop-the-look--cream {
+    padding: 66px 20px !important;
+  }
+  body.is-home .shop-the-look__head {
+    margin-bottom: 28px !important;
+  }
+  body.is-home .shop-the-look__title {
+    font-size: 44px !important;
+  }
+  body.is-home .shop-the-look__subtitle {
+    font-size: 13px !important;
+  }
+  body.is-home .shop-the-look__hero {
+    min-height: 430px !important;
+  }
+  body.is-home .shop-the-look__picks-inner {
+    gap: 12px !important;
+  }
+  body.is-home .shop-the-look__picks-inner .eo-hs-card--product {
+    flex: 0 0 min(235px, 76vw) !important;
+  }
+  body.is-home .ab-comparison-section {
+    padding: 66px 20px !important;
+  }
+  body.is-home .ab-comparison-title {
+    font-size: 44px !important;
+  }
+  body.is-home .newsletter-luxe {
+    padding: 74px 20px !important;
+  }
+  body.is-home .newsletter-luxe__title {
+    font-size: 43px !important;
   }
 }
-
-/* ==============================================
-   12. SMALL MOBILE
-============================================== */
-
-@media (max-width: 380px) {
-  body.is-home .edition-hero-slider__content {
-    left: 18px !important;
-    right: 18px !important;
-    max-width: calc(100% - 36px) !important;
-  }
-
-  body.is-home .edition-hero-slider__title {
-    font-size: 29px !important;
-  }
-
-  body.is-home .edition-hero-slider__desc {
-    font-size: 12px !important;
-  }
-}
-
-/* ==============================================
-   13. REDUCED MOTION
-============================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  body.is-home .edition-hero-slider__img {
-    transform: none !important;
-    transition: none !important;
-  }
-
-  body.is-home .edition-hero-slider__btn {
+  body.is-home .shop-the-look__hero-img,
+  body.is-home .edition-hero-slider__btn,
+  body.is-home .shop-the-look__hero,
+  body.is-home .shop-the-look__picks-inner .eo-hs-card--product {
     transition: none !important;
   }
 }
