@@ -31,3 +31,61 @@
 .add_to_cart_btn {
   padding-block: 8px !important;
 }
+
+/* Hero section fade */
+
+/* ==========================================
+   N30 HOMEPAGE HERO — SOFT BRAND FADE
+   Left: Warm Off-White
+   Right: Original Hero Image
+========================================== */
+
+/* Hero containers */
+body:has(.home_slider_slide) .home_slider_slide,
+.home_banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Gradient overlay */
+.home_slider_slide::after,
+.home_banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    #f7f5f2 0%,
+    rgba(247, 245, 242, 0.98) 25%,
+    rgba(247, 245, 242, 0.75) 48%,
+    rgba(247, 245, 242, 0.06) 100%
+  );
+
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Keep hero text and buttons above fade */
+.home_slider_slide > :not(img):not(picture),
+.home_banner > :not(img):not(picture) {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+  .home_slider_slide::after,
+  .home_banner::after {
+    background: linear-gradient(
+      90deg,
+      rgba(247, 245, 242, 0.98) 0%,
+      rgba(247, 245, 242, 0.94) 55%,
+      rgba(247, 245, 242, 0.6) 100%
+    );
+  }
+}
