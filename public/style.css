@@ -35,25 +35,21 @@
 /* Hero section fade */
 
 /* ==========================================
-   N30 HOMEPAGE HERO — SOFT BRAND FADE
-   Left: Warm Off-White
-   Right: Original Hero Image
+   N30 HOMEPAGE HERO — BRAND FADE
+   Targets the actual EasyOrders hero slider
 ========================================== */
 
-/* Hero containers */
-body:has(.home_slider_slide) .home_slider_slide,
-.home_banner {
-  position: relative;
-  isolation: isolate;
+/* Hero image container */
+body.is-home .edition-hero-slider__media {
+  position: absolute;
+  inset: 0;
   overflow: hidden;
 }
 
-/* Gradient overlay */
-.home_slider_slide::after,
-.home_banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+/* Override EasyOrders' existing dark gradient */
+body.is-home .edition-hero-slider__shade {
+  position: absolute !important;
+  inset: 0 !important;
 
   background: linear-gradient(
     90deg,
@@ -61,31 +57,70 @@ body:has(.home_slider_slide) .home_slider_slide,
     rgba(247, 245, 242, 0.98) 25%,
     rgba(247, 245, 242, 0.75) 48%,
     rgba(247, 245, 242, 0.06) 100%
-  );
+  ) !important;
 
-  z-index: 1;
-  pointer-events: none;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
 }
 
-/* Keep hero text and buttons above fade */
-.home_slider_slide > :not(img):not(picture),
-.home_banner > :not(img):not(picture) {
-  position: relative;
-  z-index: 2;
+/* Keep text and CTA above the gradient */
+body.is-home .edition-hero-slider__content {
+  z-index: 3 !important;
 }
 
-/* ==========================
+/* Dark heading for the light background */
+body.is-home .edition-hero-slider__title {
+  color: #1e1e1e !important;
+}
+
+/* Dark description */
+body.is-home .edition-hero-slider__desc {
+  color: #66605b !important;
+  opacity: 1 !important;
+}
+
+/* CTA button matching N30 brand */
+body.is-home .edition-hero-slider__btn {
+  background: #211c18 !important;
+  color: #f7f5f2 !important;
+  border: 1px solid #211c18 !important;
+}
+
+body.is-home .edition-hero-slider__btn:hover {
+  background: #372f28 !important;
+  border-color: #372f28 !important;
+}
+
+/* Homepage header text must match the light fade */
+body.is-home .ab-theme:not(.scrolled) .ab-header {
+  --hd-text: #211c18 !important;
+}
+
+/* Make the homepage logo dark */
+body.is-home .ab-theme:not(.scrolled) .ab-logo img {
+  filter: brightness(0) !important;
+}
+
+/* ==========================================
    MOBILE
-========================== */
+========================================== */
 
 @media (max-width: 768px) {
-  .home_slider_slide::after,
-  .home_banner::after {
+  body.is-home .edition-hero-slider__shade {
     background: linear-gradient(
       90deg,
       rgba(247, 245, 242, 0.98) 0%,
       rgba(247, 245, 242, 0.94) 55%,
       rgba(247, 245, 242, 0.6) 100%
-    );
+    ) !important;
+  }
+
+  body.is-home .edition-hero-slider__title {
+    color: #1e1e1e !important;
+  }
+
+  body.is-home .edition-hero-slider__desc {
+    color: #66605b !important;
   }
 }
